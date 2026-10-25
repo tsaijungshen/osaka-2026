@@ -3,162 +3,304 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026-2027 釜山浪漫跨年散步帖 🌊</title>
+    <title>🐰 卡娜赫拉的小動物 ‧ 釜山跨年手帳 🐥</title>
     <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #fff5f5; color: #4a4a4a; margin: 0; padding: 20px; }
-        .container { max-width: 900px; margin: 0 auto; background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(255, 182, 193, 0.3); border: 3px solid #ffb6c1; }
-        h1 { text-align: center; color: #ff6b81; font-size: 2.2rem; margin-bottom: 5px; }
-        .subtitle { text-align: center; color: #778899; font-style: italic; margin-bottom: 30px; }
-        .tips-box { background: #fff0f2; border-left: 5px solid #ff6b81; padding: 15px; border-radius: 8px; margin-bottom: 30px; }
-        .day-card { background: #fafafa; border: 2px solid #ffe4e6; border-radius: 15px; padding: 20px; margin-bottom: 20px; transition: transform 0.2s; position: relative; overflow: hidden; }
-        .day-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .day-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed #ffb6c1; padding-bottom: 10px; margin-bottom: 15px; }
-        .day-title { font-size: 1.3rem; color: #ff6b81; font-weight: bold; }
-        .hotel-tag { background: #e0f7fa; color: #006064; padding: 5px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: bold; }
-        .hotel-tag.gwangalli { background: #fff3e0; color: #e65100; }
-        ul { list-style-type: none; padding-left: 0; }
-        li { margin-bottom: 10px; position: relative; padding-left: 25px; line-height: 1.5; }
-        li::before { content: '🐾'; position: absolute; left: 0; top: 2px; }
-        .meal-info { font-size: 0.9rem; color: #666; background: #f0f0f0; padding: 3px 8px; border-radius: 5px; display: inline-block; margin-top: 5px; }
-        .highlight { color: #d32f2f; font-weight: bold; }
-        .btn-theme { display: block; width: 180px; margin: 0 auto 20px; text-align: center; background: #ffb6c1; color: white; padding: 10px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.9rem; }
-        .btn-theme:hover { background: #ff6b81; }
+        body {
+            background-color: #fff1f2; /* 卡娜赫拉極粉嫩底色 */
+            color: #4c1d95; /* 深紫褐色文字，比純黑更溫柔 */
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 10px;
+        }
+        h1 {
+            text-align: center;
+            color: #db2777; /* 兔兔粉紅色 */
+            font-size: 20px;
+            margin: 15px 0;
+            text-shadow: 1px 1px 2px rgba(219, 39, 119, 0.2);
+        }
+        .subtitle {
+            text-align: center;
+            font-size: 11px;
+            color: #f43f5e; /* 溫暖草莓紅 */
+            margin-top: -10px;
+            margin-bottom: 20px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        .day-card {
+            background-color: #ffffff; /* 純白卡片襯托粉紅 */
+            border: 2px dashed #fbcfe8; /* 療癒點點虛線邊框 */
+            border-radius: 16px;
+            margin-bottom: 15px;
+            padding: 14px;
+            box-shadow: 0 4px 10px rgba(251, 207, 232, 0.4);
+        }
+        .day-header {
+            border-bottom: 2px solid #fbcfe8;
+            padding-bottom: 6px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .date {
+            color: #db2777;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .day-num {
+            background-color: #fef08a; /* P助蛋黃色 */
+            color: #b45309; /* 焦糖棕色字 */
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+        .section-title {
+            color: #be185d;
+            font-size: 13px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 4px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 6px;
+            padding-left: 10px;
+            border-left: 3px solid #fbcfe8;
+            color: #4a4a4a;
+        }
+        .meal {
+            color: #e11d48; /* 玫瑰紅美食標記 */
+            font-weight: bold;
+        }
+        /* 還原原圖藍色格子（改為溫柔粉藍） */
+        .highlight-blue {
+            border-left-color: #93c5fd;
+            color: #1e40af;
+            background-color: #eff6ff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin: 4px 0;
+        }
+        /* 還原原圖青色格子（改為可愛嫩粉紅） */
+        .highlight-teal {
+            border-left-color: #f472b6;
+            color: #9d174d;
+            background-color: #fdf2f8;
+            padding: 4px 8px;
+            border-radius: 6px;
+            margin: 4px 0;
+        }
+        .stay {
+            background-color: #fffbeb; /* P助小雞黃底色 */
+            padding: 8px;
+            border-radius: 10px;
+            margin-top: 12px;
+            font-size: 13px;
+            text-align: center;
+            color: #78350f;
+            border: 1px solid #fef08a;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <a href="#" class="btn-theme" onclick="alert('已成功切換至吉依卡哇與三麗鷗夥伴粉嫩主題！✨')">🌸 切換三麗鷗粉嫩版</a>
-    <h1>2026-2027 釜山浪漫跨年散步帖</h1>
-    <div class="subtitle">✨ 吉依卡哇與夥伴們陪你吹海風、吃烤肉走完每一天 ✨</div>
-
-    <div class="tips-box">
-        <strong>💡 貼心提醒 (Tips) & 出發前清單：</strong>
-        <ul>
-            <li>出發後第一時間兌換 <strong>釜山 PASS 實體卡</strong>、辦理租車。</li>
-            <li><strong>防寒穿著：</strong> 跨年期間釜山海風極大，一定要洋蔥式穿法＋防風外套。</li>
-            <li><strong>避開人潮：</strong> 白淺灘文化村與甘川洞小王子，強烈建議在 <span class="highlight">09:30 前</span> 抵達拍照。</li>
-        </ul>
-    </div>
+    <h1>🐰 兔兔與 P 助隨行 ‧ 釜山跨年手帳 🐥</h1>
+    <div class="subtitle">KANAHEI'S AMONG US ‧ BUSAN TRAVEL</div>
 
     <!-- Day 1 -->
     <div class="day-card">
         <div class="day-header">
-            <div class="day-title">Day 1：2026/12/29 (二)</div>
-            <div class="hotel-tag">住：西面</div>
+            <span class="date">🌸 2026/12/29 (二)</span>
+            <span class="day-num">Day 1 🐥</span>
         </div>
+        <div class="section-title">🌅 上午 / 下午</div>
         <ul>
-            <li>下午抵達釜山，領取 <strong>釜山 PASS 實體卡</strong> 並辦理租車。</li>
-            <li><span class="meal-info">晚餐</span> <strong>1953 豬肉湯飯</strong> (20:30-21:30) 暖暖胃。</li>
+            <li>出關後換釜山 PASS 實體卡</li>
+            <li>租車</li>
         </ul>
+        <div class="section-title">外頭冷冷吃晚餐 🌃</div>
+        <ul>
+            <li><span class="meal">晚餐：</span>1953 豬肉湯飯 (20:30~21:30)</li>
+        </ul>
+        <div class="stay">🏨 兔兔今晚睡這：住西面</div>
     </div>
 
     <!-- Day 2 -->
     <div class="day-card">
         <div class="day-header">
-            <div class="day-title">Day 2：2026/12/30 (三)</div>
-            <div class="hotel-tag">住：西面</div>
+            <span class="date">🌸 2026/12/30 (三)</span>
+            <span class="day-num">Day 2 🐰</span>
         </div>
+        <div class="section-title">🌅 吃飽飽上午</div>
         <ul>
-            <li><span class="meal-info">早餐</span> 選擇 <strong>Eggdrop / Diart</strong> 或逛逛道地的 <strong>釜田市場</strong>。</li>
-            <li>漫步在滿是文青小店的 <strong>田浦咖啡街</strong>。</li>
-            <li>前往樂天百貨南浦店（10:30-21:00）辦理會員卡。<br><span class="meal-info">午餐</span> 預約 <strong>豚笑-南浦店</strong>（提早線上或現場登記）。</li>
-            <li>下午大逛 <strong>BIFF 廣場</strong>、<strong>富平罐頭市場 Miglet</strong>、<strong>國際市場</strong> 與 <strong>光復路商店街</strong>。</li>
-            <li><span class="meal-info">晚餐</span> 衝 <strong>札嘎其市場</strong> 享用超豪華 <strong>帝王蟹大餐</strong> 🦀</li>
+            <li><span class="meal">早餐：</span>Eggdrop / Diart / 釜田市場</li>
+            <li>田浦咖啡街</li>
+            <li><span class="meal">午餐：</span><b>豚笑-南浦店</b> (11點準時預約)</li>
+            <li>豚笑-南浦店預約 (12:00線上預約?)</li>
+            <li>樂天百貨辦會員卡</li>
         </ul>
+        <div class="section-title">🌆 買東西下午</div>
+        <ul>
+            <li>BIFF 廣場、富平罐頭市場 Miglet、國際市場</li>
+            <li>光復路商店街</li>
+            <li class="highlight-blue">🛍️ 樂天百貨光復店 10:30~21:00 (可退稅)</li>
+        </ul>
+        <div class="section-title">🌃 奢華晚餐</div>
+        <ul>
+            <li><span class="meal">晚餐：</span>札嘎其市場帝王蟹 🦀</li>
+        </ul>
+        <div class="stay">🏨 兔兔今晚睡這：住西面</div>
     </div>
 
     <!-- Day 3 -->
     <div class="day-card">
         <div class="day-header">
-            <div class="day-title">Day 3：2026/12/31 (四) 🎆 跨年夜</div>
-            <div class="hotel-tag">住：西面</div>
+            <span class="date">🌸 2026/12/31 (四)</span>
+            <span class="day-num">Day 3 🐥</span>
         </div>
+        <div class="section-title">🌅 美景上午</div>
         <ul>
-            <li><span class="meal-info">早餐</span> 滋補的 <strong>大海鮑魚粥</strong>。</li>
-            <li>前往 <strong>白淺灘文化村</strong>（漫步海岸隧道、彩虹階梯），<span class="highlight">強烈建議早上去避開人潮</span>。</li>
-            <li><span class="meal-info">午餐</span> <strong>巨人王豬排</strong> 或在 <strong>影島海女村</strong> 臨海吃海鮮。</li>
-            <li>下午漫步 <strong>五六島天空步道</strong> 與 <strong>二姑臺</strong> 欣賞壯麗海景。</li>
-            <li>傍晚逛樂天百貨釜山總店與西面地下街（店員推薦：比南浦地下街還好逛！）。</li>
-            <li><span class="meal-info">晚餐</span> 吃超香的 <strong>老宅邸燒肉</strong>。</li>
-            <li><span class="highlight">跨年倒數</span> 觀賞 <strong>廣安里無人機跨年表演</strong>（窩在舒適的飯店看直播最保暖！）。</li>
+            <li><span class="meal">早餐：</span>大海鮑魚粥</li>
+            <li>白淺灘文化村</li>
+            <li>海岸隧道、彩虹階梯 (排隊人潮多，建議早上走)</li>
+            <li><span class="meal">午餐：</span>巨人王豬排 / 影島海女村吃海鮮</li>
         </ul>
+        <div class="section-title">🌆 逛街下午</div>
+        <ul>
+            <li>五六島天空步道</li>
+            <li>二妓臺</li>
+            <li class="highlight-blue">🛍️ 樂天百貨釜山總店 10:30~21:00</li>
+            <li class="highlight-blue">🛍️ 西面地下街 (不要逛南浦地下街)</li>
+        </ul>
+        <div class="section-title">跨年夜無人機 🌃</div>
+        <ul>
+            <li><span class="meal">晚餐：</span>老宅邸烤肉 🥩</li>
+            <li>廣安里無人機表演 (在飯店看直播)</li>
+        </ul>
+        <div class="stay">🏨 兔兔今晚睡這：住西面</div>
     </div>
 
     <!-- Day 4 -->
     <div class="day-card">
         <div class="day-header">
-            <div class="day-title">Day 4：2027/1/1 (五) 元旦</div>
-            <div class="hotel-tag">住：西面</div>
+            <span class="date">🌸 2027/1/1 (五)</span>
+            <span class="day-num">Day 4 🐰</span>
         </div>
+        <div class="section-title">🌅 新年第一天上午</div>
         <ul>
-            <li><span class="meal-info">早餐</span> <strong>All Sunday</strong> 貝果，隨後參觀 <strong>釜山油畫展</strong>。</li>
-            <li><span class="meal-info">午餐</span> <strong>小香燉牛肋條</strong> / <strong>31cm 海鮮麵</strong> / <strong>嚴泉湧豬肉湯飯</strong> 三選一。</li>
-            <li>下午漫步 <strong>海雲台海水浴場</strong> 與 <strong>海雲台傳統市場</strong>。</li>
-            <li>大逛全球最大的 <strong>新世界百貨 Centum City 店</strong> 與 <strong>樂天超市 (Lotte Mart)</strong>。</li>
-            <li><span class="meal-info">晚餐</span> 享用 <strong>Cor pasta bar</strong> 或 <strong>楓張手工切麵</strong>，接著登上 <strong>荒嶺山觀景台</strong> 看夜景。</li>
+            <li><span class="meal">早餐：</span>All Sunday</li>
+            <li>釜山油畫展</li>
+            <li><span class="meal">午餐：</span>小香燉牛肋條 / 31cm / 鹹泉湧豬肉湯飯</li>
         </ul>
+        <div class="section-title">🌆 走走看海下午</div>
+        <ul>
+            <li class="highlight-blue">🌊 海雲台傳統市場</li>
+            <li class="highlight-blue">🌊 海雲台海水浴場</li>
+            <li>新世界百貨 Centum City 店</li>
+            <li>樂天超市 (Lotte Mart)</li>
+        </ul>
+        <div class="section-title">🌃 夜景晚餐</div>
+        <ul>
+            <li><span class="meal">晚餐：</span>Cor pasta bar / 楓張手工切麵</li>
+            <li>荒嶺山觀景台</li>
+        </ul>
+        <div class="stay">🏨 兔兔今晚睡這：住西面</div>
     </div>
 
     <!-- Day 5 -->
     <div class="day-card">
         <div class="day-header">
-            <div class="day-title">Day 5：2027/1/2 (六)</div>
-            <div class="hotel-tag gwangalli">住：廣安里橘子</div>
+            <span class="date">🌸 2027/1/2 (六)</span>
+            <span class="day-num">Day 5 🐥</span>
         </div>
+        <div class="section-title">🌅 人氣熱門上午</div>
         <ul>
-            <li><span class="meal-info">早餐</span> 快速享用 <strong>Eggdrop</strong>。</li>
-            <li><span class="highlight">09:30 前</span> 抵達 <strong>甘川洞文化村</strong>，體驗手畫卡片並與小王子拍照。</li>
-            <li><span class="meal-info">午餐</span> 釜山超人氣 <strong>李在模披薩本店 (2號店)</strong> 🍕</li>
-            <li>下午攻略 <strong>松島龍宮雲橋</strong>、搭乘 <strong>松島海上纜車</strong>，再前往壯麗的 <strong>太宗台</strong>。</li>
-            <li>參觀 <strong>Art museum</strong> 與登 <strong>釜山塔</strong>（營業至22:00）。</li>
-            <li><span class="meal-info">晚餐</span> 吃極具人氣的 <strong>釜山烤肋排-西面店</strong>。</li>
-            <li>深夜前往 <strong>Hotel Aqua spa</strong> 享受 24 小時韓式汗蒸幕放鬆，之後入住廣安里。</li>
+            <li><span class="meal">早餐：</span>Eggdrop</li>
+            <li class="highlight-teal">📸 甘川洞文化村 (手翻書) + 小王子拍照 09:30前到</li>
+            <li><span class="meal">午餐：</span>李在模披薩本店 (2號店) 🍕</li>
         </ul>
+        <div class="section-title">🌆 松島美景下午</div>
+        <ul>
+            <li class="highlight-teal">🚠 松島龍宮雲橋</li>
+            <li class="highlight-teal">🚠 松島海上纜車</li>
+            <li>太宗台</li>
+            <li>Art museum</li>
+            <li class="highlight-teal">🗼 釜山塔 10:00~22:00</li>
+        </ul>
+        <div class="section-title">🌃 滋滋作響晚餐</div>
+        <ul>
+            <li><span class="meal">晚餐：</span>釜山烤肋排-西面店</li>
+        </ul>
+        <div class="stay">🏨 換去海邊睡覺：住廣安里橘子 (Hotel Aqua spa 24HR)</div>
     </div>
 
     <!-- Day 6 -->
     <div class="day-card">
         <div class="day-header">
-            <div class="day-title">Day 6：2027/1/3 (日)</div>
-            <div class="hotel-tag gwangalli">住：廣安里橘子</div>
+            <span class="date">🌸 2027/1/3 (日)</span>
+            <span class="day-num">Day 6 🐰</span>
         </div>
+        <div class="section-title">🌅 熱門列車上午</div>
         <ul>
-            <li><span class="meal-info">早餐</span> 在海邊吃超有名的 <strong>水邊最高豬肉湯飯</strong>。</li>
-            <li>體驗超萌的 <strong>海雲台藍線公園天空膠囊列車</strong> 🚟</li>
-            <li>換搭 <strong>海岸列車</strong>（附青沙浦拍照打卡攻略）。</li>
-            <li>下午造訪 <strong>釜山 Brick Campus (積木樂園)</strong>，並登上 <strong>Busan X the Sky</strong> 觀景台。</li>
-            <li><span class="meal-info">晚餐</span> 享用 <strong>Gohasun-廣安店</strong> 熟成豬肉。</li>
-            <li>夜間搭乘 <strong>鑽石遊艇 (夜景場)</strong>，近距離欣賞廣安大橋夜景！</li>
+            <li><span class="meal">早餐：</span>水邊最高豬肉湯飯</li>
+            <li class="highlight-teal">🚃 天空膠囊列車</li>
+            <li><span class="meal">午餐：</span>小香燉牛肋條 / 31cm / 鹹泉湧豬肉湯飯</li>
         </ul>
+        <div class="section-title">🌆 特色景點下午</div>
+        <ul>
+            <li class="highlight-teal">🚃 海岸列車 (青沙浦拍照攻略)</li>
+            <li class="highlight-teal">🧩 釜山Brick Campus</li>
+            <li>Busan X the Sky</li>
+        </ul>
+        <div class="section-title">🌃 浪漫遊艇夜</div>
+        <ul>
+            <li><span class="meal">晚餐：</span>Gohasun-廣安店</li>
+            <li class="highlight-teal">⛵ 鑽石遊艇 (夜間版)</li>
+        </ul>
+        <div class="stay">🏨 聽海浪聲睡覺：住廣安里橘子</div>
     </div>
 
     <!-- Day 7 -->
     <div class="day-card">
         <div class="day-header">
-            <div class="day-title">Day 7：2027/1/4 (一)</div>
-            <div class="hotel-tag gwangalli">住：廣安里橘子</div>
+            <span class="date">🌸 2027/1/4 (一)</span>
+            <span class="day-num">Day 7 🐥</span>
         </div>
+        <div class="section-title">🌅 瘋玩樂園上午</div>
         <ul>
-            <li>整天瘋玩 <strong>釜山樂天世界</strong> 與刺激的 <strong>Skyluge (斜坡滑車)</strong> 🏎️</li>
-            <li>傍晚到 <strong>Lotte Premium Outlets 東釜山店</strong> 開心購物。</li>
-            <li><span class="meal-info">晚餐</span> 吃爆 <strong>廣安木烤肉-廣安店</strong>，隨後再去 <strong>荒嶺山觀景台</strong> 捕捉不同角度的夜景。</li>
+            <li class="highlight-teal">🎡 樂天世界</li>
+            <li>skyluge</li>
+            <li>Lotte Premium Outlets 東釜山店</li>
         </ul>
+        <div class="section-title">🌆 探索探險下午</div>
+        <ul>
+            <li class="highlight-teal">🔍 要去哪裡玩攻略</li>
+        </ul>
+        <div class="section-title">🌃 跨年收尾晚餐</div>
+        <ul>
+            <li><span class="meal">晚餐：</span>廣安木烤肉-廣安店</li>
+            <li>荒嶺山觀景台</li>
+        </ul>
+        <div class="stay">🏨 聽海浪聲睡覺：住廣安里橘子</div>
     </div>
 
     <!-- Day 8 -->
     <div class="day-card">
         <div class="day-header">
-            <div class="day-title">Day 8：2027/1/5 (二) 歸途</div>
-            <div class="hotel-tag">住：溫暖的家</div>
+            <span class="date">🌸 2027/1/5 (二)</span>
+            <span class="day-num">Day 8 🐰</span>
         </div>
+        <div class="section-title">🌅 最後大採買</div>
         <ul>
-            <li><span class="meal-info">早餐</span> 文青風 <strong>Working holiday</strong>。</li>
-            <li><span class="meal-info">午餐</span> 在絕美海景餐廳 <strong>Nasari Sigdang</strong> 享用海鮮刀削麵。</li>
-            <li>下午整理行李，核對退稅單據，出發前往金海機場，搭機返台 ✈️</li>
-        </ul>
-    </div>
-</div>
-
-</body>
-</html>
+            <li><span class="meal">早餐：</span>Working holiday</li>
+            <li><span class="meal">午餐：</span>Nasari Sigdang</li>
