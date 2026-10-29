@@ -16,21 +16,15 @@
   --line:rgba(74,58,42,.13); --water:#C9ECFA; --mt:#D5F0C5; --mt2:#B8E2A3; --park:#E4F7DC; --road:#F9EBC8; --team2:#38B27E;
   color-scheme:light;
   box-sizing:border-box;
-  padding-top:env(safe-area-inset-top,0px);
-  padding-bottom:env(safe-area-inset-bottom,0px);
 }
 *,*::before,*::after{box-sizing:inherit}
-[hidden]{display:none!important}
-html{scroll-padding-top:env(safe-area-inset-top,0px);color-scheme:light}
 body{
   margin:0; background:var(--bg); color:var(--ink);
   font-family:"Huninn","Zen Maru Gothic","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
   line-height:1.6; -webkit-font-smoothing:antialiased;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='200' height='200'%3E%3Cg fill='%23FFD166' opacity='.42'%3E%3Cpath d='M32 22l3.5 7.5 7.5 3.5-7.5 3.5-3.5 7.5-3.5-7.5-7.5-3.5 7.5-3.5z'/%3E%3Cpath d='M150 95l2.5 5.5 5.5 2.5-5.5 2.5-2.5 5.5-2.5-5.5-5.5-2.5 5.5-2.5z'/%3E%3Cpath d='M85 160l2 4 4 2-4 2-2 4-2-4-4-2 4-2z'/%3E%3Ccircle cx='110' cy='45' r='2.5'/%3E%3Ccircle cx='45' cy='135' r='2'/%3E%3C/g%3E%3Cg fill='%23FF9EB5' opacity='.38'%3E%3Ccircle cx='170' cy='35' r='3'/%3E%3Ccircle cx='25' cy='85' r='2.5'/%3E%3Cpath d='M165 165l2.5 5 5 2.5-5 2.5-2.5 5-2.5-5-5-2.5 5-2.5z'/%3E%3C/g%3E%3Cg fill='%2389CFF0' opacity='.35'%3E%3Ccircle cx='70' cy='25' r='2.2'/%3E%3Ccircle cx='130' cy='175' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='200' height='200'%3E%3Cg fill='%23FFD166' opacity='.42'%3E%3Cpath d='M32 22l3.5 7.5 7.5 3.5-7.5 3.5-3.5 7.5-3.5-7.5-7.5-3.5 7.5-3.5z'/%3E%3Cpath d='M150 95l2.5 5.5 5.5 2.5-5.5 2.5-2.5 5.5-2.5-5.5-5.5-2.5 5.5-2.5z'/%3E%3C/g%3E%3C/svg%3E");
 }
-a{color:inherit}
 .wrap{max-width:1220px;margin:0 auto;padding:18px 16px 48px}
-
 header.top{
   display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;
   margin:4px 4px 16px;padding:14px 20px;
@@ -38,11 +32,11 @@ header.top{
   border:2.5px solid var(--ink);border-radius:24px;
   box-shadow:0 5px 0 rgba(74,58,42,.1);position:relative;overflow:hidden;
 }
-.title{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.title h1{margin:0;font-family:"Zen Maru Gothic","Huninn",sans-serif;font-weight:900;font-size:clamp(24px,4.2vw,38px);line-height:1.18;letter-spacing:.02em}
-.title p{margin:3px 0 0;color:var(--ink2);font-size:14.5px}
+.title{display:flex;flex-direction:column;gap:4px}
+.title h1{margin:0;font-family:"Zen Maru Gothic","Huninn",sans-serif;font-weight:900;font-size:clamp(24px,4.2vw,34px);line-height:1.2;letter-spacing:.02em}
+.title p{margin:0;color:var(--ink2);font-size:14.5px}
 
-nav.days{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-width:thin}
+nav.days{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-width:thin;margin-bottom:10px}
 .ticket{
   flex:0 0 auto;position:relative;min-width:124px;padding:10px 16px;border:2.5px solid var(--ink);border-radius:14px;
   background:var(--paper);color:var(--ink);font:inherit;text-align:left;cursor:pointer;
@@ -51,30 +45,26 @@ nav.days{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-wi
 .ticket:hover{transform:translateY(-2px);background:var(--blob1)}
 .ticket b{display:flex;align-items:center;gap:6px;font-family:"Zen Maru Gothic","Huninn",sans-serif;font-weight:900;font-size:18px;line-height:1.15}
 .ticket span{display:block;font-size:12.5px;color:var(--ink2);margin-top:2px}
-.ticket[aria-selected="true"]{background:var(--yellow);color:#4A3A2A;transform:translateY(-2px)}
+.ticket.active{background:var(--yellow);color:#4A3A2A;transform:translateY(-2px)}
+.ticket.active span{color:#4A3A2A;font-weight:700}
 
 .page{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
 .day-head{
   display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;
-  padding:10px 16px;background:var(--paper);border:2.5px solid var(--ink);border-radius:18px;
+  padding:14px 16px;background:var(--paper);border:2.5px solid var(--ink);border-radius:18px;
   box-shadow:0 4px 0 rgba(74,58,42,.08);
 }
-.day-head h2{margin:0;font-family:"Zen Maru Gothic","Huninn",sans-serif;font-weight:900;font-size:clamp(20px,3vw,28px)}
-.day-head .meta{color:var(--ink2);font-size:14.5px}
+.day-head h2{margin:0;font-family:"Zen Maru Gothic","Huninn",sans-serif;font-weight:900;font-size:clamp(20px,3vw,26px)}
+.day-head .meta{color:var(--ink2);font-size:14.5px;width:100%}
 
-.timeline{display:flex;flex-direction:column;gap:14px;position:relative;padding-left:20px;margin-top:10px}
-.timeline::before{content:'';position:absolute;left:4px;top:10px;bottom:10px;width:3px;background:var(--ink);opacity:0.3}
+.timeline{display:flex;flex-direction:column;gap:14px;margin-top:10px}
 .spot-card{
-  position:relative;background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;
-  padding:14px 18px;box-shadow:0 4px 0 rgba(74,58,42,.06);
-}
-.spot-card::before{
-  content:'';position:absolute;left:-21px;top:22px;width:10px;height:10px;
-  background:var(--red);border:2px solid var(--ink);border-radius:50%;
+  background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;
+  padding:16px;box-shadow:0 4px 0 rgba(74,58,42,.06);
 }
 .spot-time{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:16px;color:var(--red)}
-.spot-name{font-weight:900;font-size:18px;margin:2px 0 6px}
-.spot-detail{font-size:14.5px;color:var(--ink2);white-space:pre-line}
+.spot-name{font-weight:900;font-size:19px;margin:4px 0 6px}
+.spot-detail{color:var(--ink2);font-size:14.5px;white-space:pre-line}
 </style>
 </head>
 <body>
@@ -90,7 +80,7 @@ nav.days{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-wi
 
   <main class="page">
     <div class="day-head">
-      <h2 id="dayTitle">載入中...</h2>
+      <h2 id="dayTitle">正在為您開啟旅程...</h2>
       <div class="meta" id="dayMeta"></div>
     </div>
     <div class="timeline" id="timelineContainer"></div>
@@ -100,96 +90,101 @@ nav.days{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-wi
 <script>
 const daysData = [
   {
-    dayNum: "1",
-    date: "12/29",
-    weekDay: "（二）",
-    title: "Day 1：啟程釜山・辦理通行證與取車",
-    meta: "今日焦點：出關換釜山景點通行證、領租車、Shake Shack 晚餐",
+    dayNum: "1", date: "12/29", weekDay: "（二）", title: "Day 1：啟程釜山・辦理通行證與取車", meta: "今日焦點：出關換釜山景點通行證、領租車、Shake Shack 晚餐",
     spots: [
-      { time: "--:--", name: "出關與領卡", detail: "出關後換取金海機場/釜山車站之釜山 PASS 實體卡" },
-      { time: "--:--", name: "取車自駕", detail: "前往租車櫃台辦理手續，領取本次行程交通工具" },
-      { time: "20:30-21:30", name: "晚餐：Shake Shack", detail: "經典美式漢堡，美味多汁飽餐一頓" },
-      { time: "22:00", name: "入住西面飯店", detail: "返回西面住宿點辦理 Check-in 並置放行李" }
+      { time: "下午", name: "出關與領卡", detail: "出關後換取金海機場/釜山車站之釜山 PASS 實體卡" },
+      { time: "下午", name: "取車自駕", detail: "前往租車櫃台辦理手續，領取本次行程交通工具" },
+      { time: "20:30-21:30", name: "晚餐：Shake Shack", detail: "指定美食！經典美式漢堡，美味多汁飽餐一頓" },
+      { time: "22:00", name: "入住西面飯店", detail: "返回西面住宿點辦理 Check-in 並置放行李（住西面）" }
     ]
   },
   {
-    dayNum: "2",
-    date: "12/30",
-    weekDay: "（三）",
-    title: "Day 2：田浦與南浦商圈美食漫遊",
-    meta: "今日焦點：田浦咖啡街、富平罐頭市場、樂天百貨免稅",
+    dayNum: "2", date: "12/30", weekDay: "（三）", title: "Day 2：田浦與南浦商圈美食漫遊", meta: "今日焦點：田浦咖啡街、富平罐頭市場、樂天百貨免稅",
     spots: [
-      { time: "09:00", name: "早餐：Eggdrop / Diart / 釜田市場", detail: "精選多樣化早餐，開啟美味的一天" },
-      { time: "10:30", name: "田浦咖啡街", detail: "漫步特色咖啡館林立的文青街道" },
-      { time: "11:00", name: "午餐：豚笑-南浦店 (時段預約)", detail: "11點準時預約！大啖超人氣精緻日式炸豬排" },
+      { time: "09:00", name: "早餐選擇", detail: "Eggdrop / Diart / 釜田市場任選，隨後散步前往田浦咖啡街" },
+      { time: "11:00", name: "午餐：豚笑-南浦店 (時段預約)", detail: "指定美食！11點準時預約！大啖超人氣精緻日式炸豬排" },
       { time: "12:00", name: "樂天百貨免稅店 (南浦)", detail: "線上預約辦理樂天百貨會員卡，享受血拼時光" },
       { time: "14:30", name: "南浦商圈大集合", detail: "暢遊 BIFF 廣場、富平罐頭市場、Miglet、國際市場及光復路商店街" },
-      { time: "18:00", name: "樂天百貨南浦店", detail: "下午 18:30 前往指定美食地點（如札嘎其市場帝王蟹100號店）享用跨年前夜大餐" },
-      { time: "21:30", name: "返回西面", detail: "回到西面舒適的住宿點休息" }
+      { time: "16:30", name: "逛街採購", detail: "樂天百貨廣域南浦店購物行程（10:30-21:00）" },
+      { time: "18:30", name: "晚餐：札幌市市場帝王蟹 100 號", detail: "指定美食！享受極致奢華的帝王蟹海鮮大餐" },
+      { time: "21:30", name: "返回西面", detail: "回到西面舒適的住宿點休息（住西面）" }
     ]
   },
   {
-    dayNum: "3",
-    date: "12/31",
-    weekDay: "（四）",
-    title: "Day 3：白淺灘文化村與跨年煙火秀",
-    meta: "今日焦點：白淺灘、五六島、廣安里無人機跨年表演",
+    dayNum: "3", date: "12/31", weekDay: "（四）", title: "Day 3：白淺灘文化村與跨年煙火秀", meta: "今日焦點：白淺灘、五六島、廣安里無人機跨年表演",
     spots: [
-      { time: "08:30", name: "早餐：大海鮑魚粥 - 釜山店", detail: "享用濃郁美味的鮑魚粥，暖胃又健康" },
+      { time: "08:30", name: "早餐：大海鮑魚粥 - 釜山店", detail: "指定美食！享用濃郁美味的鮑魚粥，暖胃又健康" },
       { time: "10:00", name: "白淺灘文化村 & 彩虹階梯", detail: "沿海漫步海岸隧道、彩虹階梯，排隊人潮多建議儘早上山拍照" },
-      { time: "12:30", name: "午餐：巨人王豬排 / 影島海女村吃海鮮", detail: "大啖傳統脆皮大豬排或是新鮮現撈海味" },
+      { time: "12:30", name: "午餐：巨人王豬排 / 影島海女村吃海鮮", detail: "指定美食！大啖傳統脆皮大豬排或是新鮮現撈海味" },
       { time: "14:30", name: "五六島天空步道", detail: "挑戰透明玻璃步道，俯瞰壯麗的五六島與海景地標" },
-      { time: "16:30", name: "二妹台", detail: "散步觀賞獨特的岩石海岸景觀" },
-      { time: "18:30", name: "晚餐：老宅邸燒肉", detail: "精緻韓式老宅燒肉大餐，品嚐高品質油花烤肉" },
-      { time: "21:30", name: "西面地下街 / 廣安里跨年", detail: "逛西面地下街（注意不要逛到南浦洞地下街去囉！），隨後返回飯店或前往廣安里觀看跨年無人機表演（在飯店看直播也很讚！）" },
-      { time: "23:59", name: "跨年倒數 迎 2027 ✨", detail: "住西面飯店，開心迎接全新的一年！" }
+      { time: "16:30", name: "二妓臺", detail: "散步觀賞獨特的岩石海岸景觀" },
+      { time: "18:30", name: "晚餐：老宅邸燒肉", detail: "指定美食！精式老宅燒肉大餐，品嚐高品質油花烤肉" },
+      { time: "21:30", name: "西面地下街", detail: "逛西面地下街購物（注意不要逛到南浦洞地下街去囉！）" },
+      { time: "23:59", name: "廣安里跨年 / 飯店看直播", detail: "觀看跨年無人機表演與倒數，開心迎接 2027 年！夜宿西面飯店" }
     ]
   },
   {
-    dayNum: "4",
-    date: "01/01",
-    weekDay: "（五）",
-    title: "Day 4：元旦海雲台海濱溫馨漫遊",
-    meta: "今日焦點：海雲台傳統市場、海濱浴場、樂天超市",
+    dayNum: "4", date: "01/01", weekDay: "（五）", title: "Day 4：元旦海雲台海濱溫馨漫遊", meta: "今日焦點：海雲台傳統市場、海濱浴場、樂天超市",
     spots: [
       { time: "09:30", name: "早餐：All Sunday", detail: "美味又元氣滿滿的烘焙貝果與咖啡" },
       { time: "11:00", name: "釜山油畫展", detail: "沈浸在文藝與色彩的元旦午後藝術展覽" },
-      { time: "12:30", name: "午餐：嚴泉湧豬肉湯飯 - 海雲台店 / 小香燉牛肋條", detail: "大啖鮮美滾燙的靈魂豬肉湯飯或是 31cm 頂級牛肋條" },
+      { time: "12:30", name: "午餐：嚴泉湧豬肉湯飯 - 海雲台店", detail: "指定美食！大啖鮮美滾燙的靈魂豬肉湯飯（小香燉牛肋條/31cm麵留待後續）" },
       { time: "14:30", name: "海雲台傳統市場 & 海濱浴場", detail: "逛在地特色市場，漫步寬闊好拍的新年海雲台海灘" },
       { time: "16:30", name: "新世界百貨 Centum City 店", detail: "到世界規模最大的百貨商場享受極致的逛街體驗" },
-      { time: "18:30", name: "晚餐：Cor pasta bar", detail: "預約精緻創意的義式餐酒館小酌與享用美味義大利麵" },
-      { time: "20:30", name: "荒嶺山觀景台宵夜與夜景", detail: "前往荒嶺山俯瞰整個釜山萬家燈火的璀璨夜景" },
-      { time: "22:00", name: "樂天超市 (Lotte Mart)", detail: "10:30-21:00 營業，採購各式必買韓式零食與伴手禮" },
-      { time: "23:00", name: "返回西面住宿", detail: "入住西面飯店，元旦夜愉快入眠" }
+      { time: "18:30", name: "晚餐：Cor pasta bar", detail: "指定美食！預約精緻創意的義式餐酒館享受美味義大利麵" },
+      { time: "20:30", name: "荒嶺山觀景台", detail: "前往荒嶺山俯瞰整個釜山萬家燈火的璀璨夜景" },
+      { time: "21:30", name: "樂天超市 (Lotte Mart)", detail: "採購各式必買韓式零食與伴手禮（住西面）" }
     ]
   },
   {
-    dayNum: "5",
-    date: "01/02",
-    weekDay: "（六）",
-    title: "Day 5：松島海上纜車與太宗台自然巡禮",
-    meta: "今日焦點：甘川洞文化村、松島龍宮雲橋、釜山烤肋排",
+    dayNum: "5", date: "01/02", weekDay: "（六）", title: "Day 5：松島海上纜車與太宗台自然巡禮", meta: "今日焦點：甘川洞文化村、松島龍宮雲橋、釜山烤肋排",
     spots: [
       { time: "08:30", name: "早餐：Eggdrop", detail: "經典好吃的韓式厚片歐姆蛋吐司" },
-      { time: "09:30", name: "甘川洞文化村 (手翻書)", detail: "小王子拍照（09:30 前抵達避開人潮），體驗手翻書製作" },
-      { time: "12:00", name: "午餐：李在模披薩 本店 (1或2號店)", detail: "釜山超狂必吃起司披薩，濃郁牽絲的銷魂美味" },
+      { time: "09:30", name: "甘川洞文化村 (手翻書)", detail: "找小王子拍照（09:30 前抵達避開人潮），體驗手翻書製作" },
+      { time: "12:00", name: "午餐：李在模披薩 本店 (1或2號店)", detail: "指定美食！釜山超狂必吃起司披薩，濃孕牽絲的銷魂美味" },
       { time: "14:00", name: "松島龍宮雲橋 & 海上纜車", detail: "搭乘全透明水晶纜車，漫步在海浪之上的驚險雲橋" },
-      { time: "16:00", name: "太宗台 & 藝術博物館 (Art Museum)", detail: "觀賞壯麗的斷崖海景，體驗現代藝術展覽" },
-      { time: "18:30", name: "晚餐：釜山烤肋排 - 西面店", detail: "排隊名店！香氣四溢、肉質極具彈性的經典烤肋排" },
-      { time: "21:00", name: "Hotel Aqua Spa 24HR", detail: "享受舒適的 24 小時極致三溫暖溫泉放鬆行程" },
-      { time: "23:00", name: "入住安里橘子", detail: "（釜山塔 10:00-22:00 可穿插），前往安里橘子住宿點 check-in" }
+      { time: "16:00", name: "太宗台 & 藝術博物館 (Art Museum)", detail: "觀賞壯麗的斷崖海景，體驗現代藝術展覽（釜山塔 10:00-22:00 可穿插）" },
+      { time: "18:30", name: "晚餐：釜山烤肋排 - 西面店", detail: "指定美食！排隊名店！香氣四溢、肉質極具彈性的經典烤肋排" },
+      { time: "21:00", name: "Hotel Aqua Spa 24HR", detail: "享受舒適的 24 小時極致三溫暖溫泉放鬆行程，夜宿廣安里橘子膠囊旅館" }
     ]
   },
   {
-    dayNum: "6",
-    date: "01/03",
-    weekDay: "（日）",
-    title: "Day 6：天空膠囊列車與廣安里浪漫夜景",
-    meta: "今日焦點：天空膠囊列車、Busan X the Sky、Gohasun 燒肉",
+    dayNum: "6", date: "01/03", weekDay: "（日）", title: "Day 6：天空膠囊列車與廣安里浪漫夜景", meta: "今日焦點：天空膠囊列車、Busan X the Sky、Gohasun 燒肉",
     spots: [
-      { time: "09:00", name: "早餐：水邊最高豬肉湯飯 (民樂店)", detail: "超高評價排隊名店，湯頭濃郁肉質嫩" },
+      { time: "09:00", name: "早餐：水邊最高豬肉湯飯 (民樂店)", detail: "指定美食！超高評價排隊名店，湯頭濃郁肉質嫩" },
       { time: "11:00", name: "天空膠囊列車", detail: "繽紛可愛的彩色小火車，沿途欣賞絕美東釜山海岸線" },
-      { time: "12:30", name: "午餐：小香牛肋條 / 嚴泉湧豬肉湯飯", detail: "多汁有嚼勁的炭火牛肋條或是香濃湯飯" },
-      { time: "14:30", name: "海岸列車風景 & Busan Brick Campus", detail: "青沙浦拍照看海，參觀充滿童趣的樂高積木樂園" },
-      { time: "16:30", name: "Busan X the Sky", detail: "搭乘高速電梯登上百層高樓，俯瞰整片海雲台海景與高空透明步道" },
-      { time: "18:30", name: "晚餐：Gohasun - 廣安店", detail: "精緻韓式燒肉，享受頂級桌邊代烤服務" },
+      { time: "12:30", name: "午餐：小香牛肋條", detail: "指定美食！多汁有嚼勁的炭火牛肋條大餐（搭配青沙浦拍照行程）" },
+      { time: "14:30", name: "釜山 Brick Campus", detail: "參觀充滿童趣的樂高積木藝術展覽" },
+      { time: "16:30", name: "Busan X the Sky", detail: "搭乘高速電梯登上百層高樓，俯瞰整片海雲台海景" },
+      { time: "18:30", name: "晚餐：Gohasun - 廣安店", detail: "指定美食！精製韓式燒肉，享受頂級桌邊代烤服務" },
+      { time: "21:00", name: "鑽石遊艇 (夜間版)", detail: "搭乘豪華遊艇出海，近距離在海上欣賞廣安大橋夜景，夜宿廣安里橘子" }
+    ]
+  },
+  {
+    dayNum: "7", date: "01/04", weekDay: "（一）", title: "Day 7：東釜山樂天世界主題樂園一日遊", meta: "今日焦點：樂天世界冒險、Skyluge 斜坡滑車、廣安木烤肉",
+    spots: [
+      { time: "10:00", name: "樂天世界冒險樂園 (Busan)", detail: "釜山全新主題樂園，全天暢玩童話風遊樂設施" },
+      { time: "14:00", name: "Skyluge 斜坡滑車", detail: "體驗從高處滑行而下的競速甩尾快感" },
+      { time: "15:30", name: "Lotte Premium Outlets 東釜山店", detail: "希臘風格的超大暢貨中心，瘋狂血拼購物" },
+      { time: "18:30", name: "晚餐：廣安木烤肉 - 廣安店", detail: "指定美食！大啖超人氣炭火木烤肉，五花肉肥美而不膩口" },
+      { time: "21:00", name: "荒嶺山觀景台", detail: "再次上山觀賞無死角的釜山璀璨市景夜色，夜宿廣安里橘子" }
+    ]
+  },
+  {
+    dayNum: "8", date: "01/05", weekDay: "（二）", title: "Day 8：質感早午餐與海景麵店完結篇", meta: "今日焦點：Working Holiday 早午餐、Nasari 海景麵、西面地下街購物",
+    spots: [
+      { time: "09:30", name: "早餐：Working Holiday", detail: "指定美食！精製奢華的澳式質感早午餐，吐司與咖啡極具水準" },
+      { time: "12:30", name: "午餐：Nasari Sigdang", detail: "指定美食！著名的面海大片窗景座位，吃著澎湃海鮮刀切麵與海鮮煎餅" },
+      { time: "14:30", name: "西面地下街最後巡禮", detail: "最後巡禮西面站商圈地下街，把未買齊的潮流服飾與美妝一次買齊" },
+      { time: "17:00", name: "前往機場返家 ✈️", detail: "前往金海機場辦理還車、登機與退稅，結束完美難忘的釜山跨年之旅！" }
+    ]
+  }
+];
+
+let activeDayIdx = 0;
+
+function renderNav() {
+  const nav = document.getElementById('daysNav');
+  if (!nav) return;
+  nav.innerHTML = daysData.map((d, idx) => `
+    <button class="ticket ${idx === activeDayIdx ? 'active' : ''}" onclick="switchDay(${idx})">
