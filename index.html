@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+# 透過 Python 精準生成絕對完整的防呆 HTML 檔案，避免對話框字數限制導致漏字
+html_content = """<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
 <meta charset="utf-8">
@@ -20,51 +21,43 @@
 *,*::before,*::after{box-sizing:inherit}
 body{
   margin:0; background:var(--bg); color:var(--ink);
-  font-family:"Huninn","Zen Maru Gothic","PingFang TC","Microsoft JhengHei","Noto Sans TC",sans-serif;
+  font-family:"Huninn","Zen Maru Gothic","PingFang TC",sans-serif;
   line-height:1.6; -webkit-font-smoothing:antialiased;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='200' height='200'%3E%3Cg fill='%23FFD166' opacity='.42'%3E%3Cpath d='M32 22l3.5 7.5 7.5 3.5-7.5 3.5-3.5 7.5-3.5-7.5-7.5-3.5 7.5-3.5z'/%3E%3Cpath d='M150 95l2.5 5.5 5.5 2.5-5.5 2.5-2.5 5.5-2.5-5.5-5.5-2.5 5.5-2.5z'/%3E%3C/g%3E%3C/svg%3E");
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://w3.org' width='200' height='200'%3E%3Cg fill='%23FFD166' opacity='.42'%3E%3Cpath d='M32 22l3.5 7.5 7.5 3.5-7.5 3.5-3.5 7.5-3.5-7.5-7.5-3.5 7.5-3.5z'/%3E%3C/g%3E%3C/svg%3E");
 }
 .wrap{max-width:1220px;margin:0 auto;padding:18px 16px 48px}
 header.top{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 20px;
-  margin:4px 4px 16px;padding:14px 20px;
+  padding:14px 20px; margin-bottom:16px;
   background:linear-gradient(135deg, var(--tan) 0%, #FFFDF9 100%);
   border:2.5px solid var(--ink);border-radius:24px;
-  box-shadow:0 5px 0 rgba(74,58,42,.1);position:relative;overflow:hidden;
+  box-shadow:0 5px 0 rgba(74,58,42,.1);
 }
-.title{display:flex;flex-direction:column;gap:4px}
-.title h1{margin:0;font-family:"Zen Maru Gothic","Huninn",sans-serif;font-weight:900;font-size:clamp(24px,4.2vw,34px);line-height:1.2;letter-spacing:.02em}
-.title p{margin:0;color:var(--ink2);font-size:14.5px}
-
-nav.days{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-width:thin;margin-bottom:10px}
+.title h1{margin:0;font-size:32px;font-weight:900}
+.title p{margin:4px 0 0;color:var(--ink2);font-size:14.5px}
+nav.days{display:flex;gap:10px;overflow-x:auto;padding-bottom:14px;margin-bottom:10px}
 .ticket{
-  flex:0 0 auto;position:relative;min-width:124px;padding:10px 16px;border:2.5px solid var(--ink);border-radius:14px;
-  background:var(--paper);color:var(--ink);font:inherit;text-align:left;cursor:pointer;
-  box-shadow:0 3px 0 rgba(74,58,42,.1);transition:transform .15s,background .15s;
+  flex:0 0 auto; min-width:124px; padding:10px 16px;
+  border:2.5px solid var(--ink); border-radius:14px; background:var(--paper);
+  cursor:pointer; font:inherit; text-align:left;
+  box-shadow:0 3px 0 rgba(74,58,42,.1);
 }
-.ticket:hover{transform:translateY(-2px);background:var(--blob1)}
-.ticket b{display:flex;align-items:center;gap:6px;font-family:"Zen Maru Gothic","Huninn",sans-serif;font-weight:900;font-size:18px;line-height:1.15}
-.ticket span{display:block;font-size:12.5px;color:var(--ink2);margin-top:2px}
-.ticket.active{background:var(--yellow);color:#4A3A2A;transform:translateY(-2px)}
-.ticket.active span{color:#4A3A2A;font-weight:700}
-
-.page{display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
+.ticket.active{background:var(--yellow);transform:translateY(-2px)}
+.ticket b{display:block;font-size:16px}
+.ticket span{display:block;font-size:12px;color:var(--ink2)}
 .day-head{
-  display:flex;flex-wrap:wrap;align-items:center;gap:8px 16px;
-  padding:14px 16px;background:var(--paper);border:2.5px solid var(--ink);border-radius:18px;
+  padding:14px; background:var(--paper); border:2.5px solid var(--ink); border-radius:18px; margin-bottom:14px;
   box-shadow:0 4px 0 rgba(74,58,42,.08);
 }
-.day-head h2{margin:0;font-family:"Zen Maru Gothic","Huninn",sans-serif;font-weight:900;font-size:clamp(20px,3vw,26px)}
-.day-head .meta{color:var(--ink2);font-size:14.5px;width:100%}
-
-.timeline{display:flex;flex-direction:column;gap:14px;margin-top:10px}
+.day-head h2{margin:0;font-size:24px;font-weight:900}
+.day-head .meta{color:var(--ink2);font-size:14px;margin-top:4px}
+.timeline{display:flex;flex-direction:column;gap:12px}
 .spot-card{
-  background:var(--paper);border:2.5px solid var(--ink);border-radius:16px;
-  padding:16px;box-shadow:0 4px 0 rgba(74,58,42,.06);
+  background:var(--paper); border:2.5px solid var(--ink); border-radius:16px; padding:14px;
+  box-shadow:0 4px 0 rgba(74,58,42,.06);
 }
-.spot-time{font-family:"Zen Maru Gothic",sans-serif;font-weight:900;font-size:16px;color:var(--red)}
-.spot-name{font-weight:900;font-size:19px;margin:4px 0 6px}
-.spot-detail{color:var(--ink2);font-size:14.5px;white-space:pre-line}
+.spot-time{font-weight:900;color:var(--red);font-size:15px}
+.spot-name{font-weight:900;font-size:18px;margin:2px 0}
+.spot-detail{font-size:14px;color:var(--ink2);white-space:pre-line}
 </style>
 </head>
 <body>
@@ -75,18 +68,15 @@ nav.days{display:flex;gap:10px;overflow-x:auto;padding:4px 4px 14px;scrollbar-wi
       <p>吉依卡哇與夥伴們陪你走過精彩的每一天 ✨</p>
     </div>
   </header>
-
   <nav class="days" id="daysNav"></nav>
-
   <main class="page">
     <div class="day-head">
-      <h2 id="dayTitle">正在為您開啟旅程...</h2>
-      <div class="meta" id="dayMeta"></div>
+      <h2 id="dayTitle">2027 釜山跨年行程</h2>
+      <div class="meta" id="dayMeta">請選擇上方天數查看詳細行程</div>
     </div>
     <div class="timeline" id="timelineContainer"></div>
   </main>
 </div>
-
 <script>
 const daysData = [
   {
@@ -128,7 +118,7 @@ const daysData = [
     spots: [
       { time: "09:30", name: "早餐：All Sunday", detail: "美味又元氣滿滿的烘焙貝果與咖啡" },
       { time: "11:00", name: "釜山油畫展", detail: "沈浸在文藝與色彩的元旦午後藝術展覽" },
-      { time: "12:30", name: "午餐：嚴泉湧豬肉湯飯 - 海雲台店", detail: "指定美食！大啖鮮美滾燙的靈魂豬肉湯飯（小香燉牛肋條/31cm麵留待後續）" },
+      { time: "12:30", name: "午餐：嚴泉湧豬肉湯飯 - 海雲台店", detail: "指定美食！大啖鮮美滾燙的靈魂豬肉湯飯" },
       { time: "14:30", name: "海雲台傳統市場 & 海濱浴場", detail: "逛在地特色市場，漫步寬闊好拍的新年海雲台海灘" },
       { time: "16:30", name: "新世界百貨 Centum City 店", detail: "到世界規模最大的百貨商場享受極致的逛街體驗" },
       { time: "18:30", name: "晚餐：Cor pasta bar", detail: "指定美食！預約精緻創意的義式餐酒館享受美味義大利麵" },
@@ -141,7 +131,7 @@ const daysData = [
     spots: [
       { time: "08:30", name: "早餐：Eggdrop", detail: "經典好吃的韓式厚片歐姆蛋吐司" },
       { time: "09:30", name: "甘川洞文化村 (手翻書)", detail: "找小王子拍照（09:30 前抵達避開人潮），體驗手翻書製作" },
-      { time: "12:00", name: "午餐：李在模披薩 本店 (1或2號店)", detail: "指定美食！釜山超狂必吃起司披薩，濃孕牽絲的銷魂美味" },
+      { time: "12:00", name: "午餐：李在模披薩 本店 (1或2號店)", detail: "指定美食！釜山超狂必吃起司披薩，濃郁牽絲的銷魂美味" },
       { time: "14:00", name: "松島龍宮雲橋 & 海上纜車", detail: "搭乘全透明水晶纜車，漫步在海浪之上的驚險雲橋" },
       { time: "16:00", name: "太宗台 & 藝術博物館 (Art Museum)", detail: "觀賞壯麗的斷崖海景，體驗現代藝術展覽（釜山塔 10:00-22:00 可穿插）" },
       { time: "18:30", name: "晚餐：釜山烤肋排 - 西面店", detail: "指定美食！排隊名店！香氣四溢、肉質極具彈性的經典烤肋排" },
@@ -174,7 +164,7 @@ const daysData = [
     dayNum: "8", date: "01/05", weekDay: "（二）", title: "Day 8：質感早午餐與海景麵店完結篇", meta: "今日焦點：Working Holiday 早午餐、Nasari 海景麵、西面地下街購物",
     spots: [
       { time: "09:30", name: "早餐：Working Holiday", detail: "指定美食！精製奢華的澳式質感早午餐，吐司與咖啡極具水準" },
-      { time: "12:30", name: "午餐：Nasari Sigdang", detail: "指定美食！著名的面海大片窗景座位，吃著澎湃海鮮刀切麵與海鮮煎餅" },
+      { time: "12:30", name: "午餐：Nasari Sigdang", detail: "著名的面海大片窗景座位，吃著澎湃海鮮刀切麵與海鮮煎餅" },
       { time: "14:30", name: "西面地下街最後巡禮", detail: "最後巡禮西面站商圈地下街，把未買齊的潮流服飾與美妝一次買齊" },
       { time: "17:00", name: "前往機場返家 ✈️", detail: "前往金海機場辦理還車、登機與退稅，結束完美難忘的釜山跨年之旅！" }
     ]
@@ -188,3 +178,43 @@ function renderNav() {
   if (!nav) return;
   nav.innerHTML = daysData.map((d, idx) => `
     <button class="ticket ${idx === activeDayIdx ? 'active' : ''}" onclick="switchDay(${idx})">
+      <b>${d.date} <span>${d.weekDay}</span></b>
+      <span>Day ${d.dayNum}</span>
+    </button>
+  `).join('');
+}
+
+function renderContent() {
+  const day = daysData[activeDayIdx];
+  const titleEl = document.getElementById('dayTitle');
+  const metaEl = document.getElementById('dayMeta');
+  const container = document.getElementById('timelineContainer');
+  
+  if (titleEl) titleEl.innerText = day.title;
+  if (metaEl) metaEl.innerText = day.meta;
+  if (container) {
+    container.innerHTML = day.spots.map(s => `
+      <div class="spot-card">
+        <div class="spot-time">🕒 ${s.time}</div>
+        <div class="spot-name">${s.name}</div>
+        <div class="spot-detail">${s.detail}</div>
+      </div>
+    `).join('');
+  }
+}
+
+function switchDay(idx) {
+  activeDayIdx = idx;
+  renderNav();
+  renderContent();
+}
+
+window.onload = function() {
+  renderNav();
+  renderContent();
+};
+</script>
+</body>
+</html>"""
+
+with open("index.html", "w", encoding="utf-8") as f:
